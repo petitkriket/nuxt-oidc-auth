@@ -2,13 +2,16 @@
 definePageMeta({
   layout: 'authentication',
 })
-const { currentProvider, login } = useOidcAuth()
+const { currentProvider, login, user } = useOidcAuth()
 const { providers } = useProviders(currentProvider.value as string)
 // use `@click="login(provider.name as any, { test: 'thiswillappearinentra', test2: 'thiswillbeignored' })"` for testing the logout params
 </script>
 
 <template>
   <div class="flex gap-2 justify-center">
+    <p>
+      inherited type of the "role" property is {{ typeof user?.userInfo?.role }}
+    </p>
     <div class="flex flex-col items-center gap-4">
       <button
         v-for="(provider, index) in providers"
