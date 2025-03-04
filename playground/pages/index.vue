@@ -82,6 +82,9 @@ async function handleClear() {
       <p class="pb-4 text-xl">
         User object
       </p>
+      <p>
+        inherited type of the "role" property is {{ typeof user?.userInfo?.role }}
+      </p>
       <div
         v-for="(value, key, index) in user"
         :key="index"
